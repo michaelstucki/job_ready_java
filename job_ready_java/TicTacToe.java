@@ -4,7 +4,7 @@ package job_ready_java;
  *
  * @author michaelstucki
  */
-public class TicTackToe {
+public class TicTacToe {
 
     // Board model
     static String[][] boardModel = {{"1", "2", "3"}, {"4", "5", "6"}, {"7", "8", "9"}};
@@ -33,7 +33,7 @@ public class TicTackToe {
             for (int j = 0; j < boardView.length; j++) {
                 strBld.append(strings[j]);
             }
-            System.out.println(strBld.toString());
+            System.out.println(strBld);
             strBld.delete(0, strBld.length());
         }
     }
