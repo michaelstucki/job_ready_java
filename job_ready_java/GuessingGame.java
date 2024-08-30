@@ -18,7 +18,7 @@ public class GuessingGame {
     // Get number from user in specified range
     static int getNumber(Scanner scanner) {
         int number = 0;
-        String numberStr = "";
+        String numberStr;
         boolean valid = false;
         do {
             System.out.print(numberPrompt);
@@ -45,7 +45,7 @@ public class GuessingGame {
         int target = getNumber(scanner);
 
         // Start game loop
-        int guess = 0;
+        int guess;
         int tries = 0;
         System.out.println("Try guessing the target number.");
         boolean guessed = false;
