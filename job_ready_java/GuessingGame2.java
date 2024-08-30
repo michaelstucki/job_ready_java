@@ -12,7 +12,7 @@ public class GuessingGame2 {
         // Hardcode the target number to be guessed by the user
         final int answer = 5;
 
-        String guessStr = "";
+        String guessStr;
         int guess = Integer.MIN_VALUE;
         boolean isGuessed = false;
 
