@@ -19,21 +19,21 @@ public class GuessingGame {
     static int getNumber(Scanner scanner) {
         int number = 0;
         String numberStr = "";
-        boolean isValid = false;
+        boolean valid = false;
         do {
             System.out.print(numberPrompt);
             numberStr = scanner.nextLine();
             try {
                 number = Integer.parseInt(numberStr);
                 if (number >= MIN && number <= MAX) {
-                    isValid = true;
+                    valid = true;
                 } else {
                     System.out.println("Number is out of range!");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("Number was not entered!");
             }
-        } while (!isValid);
+        } while (!valid);
         return number;
     }
 
