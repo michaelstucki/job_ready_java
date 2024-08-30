@@ -12,11 +12,11 @@ public class TicTacToe {
     // Board view
     static char[][] boardView = {
             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {' ', boardModel[0][0], ' ', '|', ' ', boardModel[0][1], ' ', '|', ' ', boardModel[0][2], ' '},
             {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
-            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {' ', boardModel[1][0], ' ', '|', ' ', boardModel[1][1], ' ', '|', ' ', boardModel[1][2], ' '},
             {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
-            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {' ', boardModel[2][0], ' ', '|', ' ', boardModel[2][1], ' ', '|', ' ', boardModel[2][2], ' '},
             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
     };
 
@@ -24,30 +24,30 @@ public class TicTacToe {
     static int[] rowMap = {1, 3, 5};
     static int[] colMap = {1, 5, 9};
 
-    // Set board view
-    static void setBoardView() {
-        for (int i = 0; i < rowMap.length; i++) {
-            for (int j = 0; j < colMap.length; j++) {
-                boardView[rowMap[i]][colMap[j]] = boardModel[i][j];
-            }
-        }
+    // Update board view
+    static void updateBoardView(int row, int col) {
+        boardView[rowMap[row]][colMap[col]] = boardModel[row][col];
     }
 
     // Display board view to console
     static void displayBoardView() {
-        for (int i = 0; i < boardView.length; i++) {
-            for (int j = 0; j < boardView[0].length; j++) {
-                System.out.print(boardView[i][j]);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char[] row : boardView) {
+            for (char c : row) {
+                stringBuilder.append(c);
             }
-            System.out.println();
+            stringBuilder.append('\n');
         }
+        System.out.println(stringBuilder);
     }
 
     public static void main(String[] args) {
-        setBoardView();
         displayBoardView();
-        boardModel[0][0] = 'X';
-        setBoardView();
+
+        int row = 0;
+        int col = 0;
+        boardModel[row][col] = 'X';
+        updateBoardView(row, col);
         displayBoardView();
     }
 }
