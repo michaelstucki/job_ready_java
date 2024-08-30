@@ -7,39 +7,47 @@ package job_ready_java;
 public class TicTacToe {
 
     // Board model
-    static String[][] boardModel = {{"1", "2", "3"}, {"4", "5", "6"}, {"7", "8", "9"}};
+    static char[][] boardModel = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 
     // Board view
-    static String[][] boardView = new String[3][3];
+    static char[][] boardView = {
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+            {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    };
 
-    // Update board view with board model
+    // Mappings between boardModel and boardView
+    static int[] rowMap = {1, 3, 5};
+    static int[] colMap = {1, 5, 9};
+
+    // Set board view
     static void setBoardView() {
-        StringBuilder strBld = new StringBuilder();
-        for (int i = 0; i < boardModel.length; i++) {
-            for (int j = 0; j < boardModel.length; j++) {
-                strBld.append(" ");
-                strBld.append(boardModel[i][j]);
-                strBld.append(" ");
-                boardView[i][j] = strBld.toString();
-                strBld.delete(0, strBld.length());
+        for (int i = 0; i < rowMap.length; i++) {
+            for (int j = 0; j < colMap.length; j++) {
+                boardView[rowMap[i]][colMap[j]] = boardModel[i][j];
             }
         }
     }
 
-    // Show board view on console
-    static void displayBoard() {
-        StringBuilder strBld = new StringBuilder();
-        for (String[] strings : boardView) {
-            for (int j = 0; j < boardView.length; j++) {
-                strBld.append(strings[j]);
+    // Display board view to console
+    static void displayBoardView() {
+        for (int i = 0; i < boardView.length; i++) {
+            for (int j = 0; j < boardView[0].length; j++) {
+                System.out.print(boardView[i][j]);
             }
-            System.out.println(strBld);
-            strBld.delete(0, strBld.length());
+            System.out.println();
         }
     }
 
     public static void main(String[] args) {
         setBoardView();
-        displayBoard();
+        displayBoardView();
+        boardModel[0][0] = 'X';
+        setBoardView();
+        displayBoardView();
     }
 }
