@@ -1,5 +1,6 @@
 package job_ready_java;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GuessingGame2 {
@@ -10,14 +11,17 @@ public class GuessingGame2 {
         String userPrompt = "Enter a number between " + MIN + " and " + MAX + " : ";
 
         // Hardcode the target number to be guessed by the user
-        final int answer = 5;
+        Random random = new Random();
+        final int answer = random.nextInt(MAX) + MIN;
 
         String guessStr;
         int guess = Integer.MIN_VALUE;
         boolean isGuessed = false;
+        int tries = 0;
 
         // Game loop
         do {
+            tries++;
             // Get a number from user
             boolean isValid = false;
             do {
@@ -45,6 +49,7 @@ public class GuessingGame2 {
             }
         } while (!isGuessed);
 
-        System.out.println("You guess it! The answer was: " + answer);
+        System.out.println("\nYou guess it! The answer was: " + answer);
+        System.out.println("It took you " + tries + " tries.");
     }
 }
