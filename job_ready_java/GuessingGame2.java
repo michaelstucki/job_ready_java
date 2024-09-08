@@ -3,6 +3,10 @@ package job_ready_java;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ *
+ * @author michaelstucki
+ */
 public class GuessingGame2 {
     public static void main(String[] args) {
         final int MIN = 1;

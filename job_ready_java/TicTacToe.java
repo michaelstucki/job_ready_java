@@ -41,7 +41,7 @@ public class TicTacToe {
         System.out.println(stringBuilder);
     }
 
-    public static void main(String[] args) {
+    public static <List> void main(String[] args) {
         displayBoardView();
 
         int row = 0;
@@ -49,5 +49,6 @@ public class TicTacToe {
         boardModel[row][col] = 'X';
         updateBoardView(row, col);
         displayBoardView();
+
     }
 }

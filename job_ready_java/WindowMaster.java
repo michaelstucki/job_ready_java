@@ -2,6 +2,10 @@ package job_ready_java;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author michaelstucki
+ */
 public class WindowMaster {
 
     static final double GLASS_COST_SQFT = 3.5;
